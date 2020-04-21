@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "rootDBPass"
+      MYSQL_DATABASE: "godb"
+      MYSQL_USER: "go"
+      MYSQL_PASSWORD: "pass"
