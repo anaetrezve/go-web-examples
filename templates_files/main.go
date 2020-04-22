@@ -19,7 +19,7 @@ type TodoPageData struct {
 }
 
 func main() {
-	tp, _ := filepath.Abs("./templates")
+	tp, _ := filepath.Abs("./templates_files")
 	tmpl := template.Must(template.ParseFiles(tp + "/" + "index.tmpl"))
 
 	todos := []Todo{
