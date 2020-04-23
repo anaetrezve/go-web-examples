@@ -33,20 +33,30 @@
 
     <div class="container">
       <div class="row">
-        <div class="col s6 offset-s3">
+        <div class="col s6">
           <div class="row">
-            <form class="col s12">
+            <form class="col s12" method="POST">
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix">email</i>
-                  <input id="email" type="email" class="validate" />
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    class="validate"
+                  />
                   <label for="email">Email</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
                   <i class="material-icons prefix">subject</i>
-                  <input id="icon_subject" type="text" class="validate" />
+                  <input
+                    name="subject"
+                    id="icon_subject"
+                    type="text"
+                    class="validate"
+                  />
                   <label for="icon_subject">Subject</label>
                 </div>
               </div>
@@ -54,6 +64,7 @@
                 <div class="input-field col s12">
                   <i class="material-icons prefix">message</i>
                   <textarea
+                    name="message"
                     id="icon_prefix2"
                     class="materialize-textarea"
                   ></textarea>
@@ -74,6 +85,29 @@
               </div>
             </form>
           </div>
+        </div>
+        <div class="col s5 offset-s1">
+          <ul class="collection with-header">
+            <li class="collection-header"><h4>Submited Values</h4></li>
+            <li class="collection-item">
+              <div style="display: flex; align-items: center;">
+                <i class="material-icons">email</i> &nbsp; &nbsp;Email:
+                {{if .Success}} {{ .FormData.Email }} {{ end }}
+              </div>
+            </li>
+            <li class="collection-item">
+              <div style="display: flex; align-items: center;">
+                <i class="material-icons">subject</i> &nbsp; &nbsp;Subject:
+                {{if .Success}} {{.FormData.Subject }} {{ end }}
+              </div>
+            </li>
+            <li class="collection-item">
+              <div style="display: flex; align-items: center;">
+                <i class="material-icons">message</i> &nbsp; &nbsp;Message:{{if .Success}}
+                {{ .FormData.Message }} {{ end }}
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
