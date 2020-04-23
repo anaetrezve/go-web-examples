@@ -30,6 +30,7 @@ func Method(m string) Middleware {
 		return func(w http.ResponseWriter, r *http.Request) {
 			if r.Method != m {
 				http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
+				return
 			}
 
 			f(w, r)
